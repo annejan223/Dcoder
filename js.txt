@@ -1,0 +1,26 @@
+let input= document.getElementById("input");
+let result = document.getElementById("resultaten");
+const resultatenLijst = document.getElementById("resultaten");
+
+input.addEventListener('input', (event) => {
+
+	const key = input.value.toLowerCase();
+	resultatenLijst.innerHTML = "";
+
+
+	const data = gebruikers.filter(
+    	gebruiker => gebruiker.name.toLowerCase().includes(key)
+  	);
+
+
+  	data.forEach(gebruiker =>{
+  		//console.log(gebruiker.name); 
+  		const liElem = document.createElement('li');
+  		liElem.innerHTML = gebruiker.name;
+  		resultatenLijst.append(liElem);
+  	});
+
+  if(!data.length || key == ""){
+     resultatenLijst.innerHTML = "<li>Geen resultaten gevonden</li>";
+  }
+});
